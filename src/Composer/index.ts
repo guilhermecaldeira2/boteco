@@ -64,7 +64,7 @@ class Composer<C extends Context> implements MiddlewareObj<C> {
     triggers: (TriggerFn<C> | ((value?: string) => RegExpExecArray))[],
     ...middlewares: MatchedMiddleware<C>
   ): MiddlewareFn<C> {
-    return (ctx, next) => {
+    return async (ctx, next) => {
       const handler = Composer.compose(middlewares);
       const text = ctx.message;
       if (!text) return next();
@@ -116,7 +116,6 @@ class Composer<C extends Context> implements MiddlewareObj<C> {
         const middleware = Composer.unwrap(middlewares[i] ?? next);
 
         if (!middleware) throw new Error('invalid handler');
-
         await middleware(context, async (ctx = context) => {
           await execute(i + 1, ctx);
         });

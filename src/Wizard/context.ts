@@ -40,7 +40,6 @@ class WizardContextWizard<
 
   set cursor(cursor: number) {
     this.ctx.scene.session.cursor = cursor;
-    console.log('T O D D Y N H O');
   }
 
   selectStep(index: number) {

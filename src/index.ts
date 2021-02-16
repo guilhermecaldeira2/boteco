@@ -8,7 +8,7 @@ import Server from './Server';
 function always<T>(x: T) {
   return () => x;
 }
-const anoop = always(Promise.resolve());
+const noop = always(Promise.resolve());
 
 export interface BotecoOptions {
   webhook?: {
@@ -41,7 +41,7 @@ export class BOTECO<C extends Context = Context> extends Composer<C> {
 
       const ctx = new Context(acceptedContextType[contextType]) as C;
 
-      await Promise.resolve(this.middleware()(ctx, anoop));
+      await Promise.resolve(this.middleware()(ctx, noop));
       return res.sendStatus(200);
     });
 

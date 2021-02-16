@@ -23,7 +23,6 @@ function Session<S extends Object>(): MiddlewareFn<SessionContext<S>> {
       ctx.session = {} as S;
     }
     await next();
-    console.log('TODY TODDY TODDYNHO');
     if (!ctx.session) {
       store.del(key);
     } else {
