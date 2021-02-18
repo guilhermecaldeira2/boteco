@@ -66,7 +66,14 @@ export class Context {
       user: {
         id: this.channel.update.from.user.id,
         name: this.channel.update.from.user.name,
+        telephoneNumber: this.channel.update.from.user.telephoneNumber,
       },
+    };
+  }
+
+  get me() {
+    return {
+      telephoneNumber: this.channel.update.me.telephoneNumber,
     };
   }
 
