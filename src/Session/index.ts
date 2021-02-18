@@ -12,7 +12,7 @@ function getSessionKey(ctx: Context) {
   return ctx.from.user.id;
 }
 
-function Session<S extends Object>(): MiddlewareFn<SessionContext<S>> {
+export function Session<S extends Object>(): MiddlewareFn<SessionContext<S>> {
   const store = new Cache({ stdTTL: 3600 });
   const sessionKey = getSessionKey;
   return async (ctx, next) => {

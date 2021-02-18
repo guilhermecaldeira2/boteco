@@ -17,7 +17,7 @@ type MatchedMiddleware<C extends Context> = ReadonlyArray<
   Middleware<MatchedContext<C & { match: RegExpExecArray }>>
 >;
 
-class Composer<C extends Context> implements MiddlewareObj<C> {
+export class Composer<C extends Context> implements MiddlewareObj<C> {
   handler: MiddlewareFn<C>;
 
   constructor(...middlewares: ReadonlyArray<Middleware<C>>) {

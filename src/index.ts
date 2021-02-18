@@ -19,15 +19,17 @@ export interface BotecoOptions {
   TOKEN: string;
 }
 
-export class BOTECO<C extends Context = Context> extends Composer<C> {
-  private readonly server: Server;
+export class Boteco<C extends Context = Context> extends Composer<C> {
+  private server: Server;
+
+  private port: string;
+
+  private webhook: string;
 
   constructor(private readonly options: BotecoOptions) {
     super();
-    const port = options.webhook?.port ?? process.env.PORT ?? '5555';
-    const webhook = options.webhook?.webhook ?? '/api/v1/webhook';
-    this.server = new Server({ port, webhook });
-    this.server.app.express.use(webhook, this.webhookHandler());
+    this.port = options.webhook?.port ?? process.env.PORT ?? '5555';
+    this.webhook = options.webhook?.webhook ?? '/api/v1/webhook';
   }
 
   webhookHandler() {
@@ -47,4 +49,11 @@ export class BOTECO<C extends Context = Context> extends Composer<C> {
 
     return router;
   }
+
+  launch() {
+    this.server = new Server({ port: this.port, webhook: this.webhook });
+    this.server.app.express.use(this.webhook, this.webhookHandler());
+  }
 }
+
+export default Boteco;

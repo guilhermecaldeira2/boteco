@@ -34,7 +34,7 @@ export interface Update {
   };
 }
 
-class Context {
+export class Context {
   constructor(readonly channel: Channel) {}
 
   get location() {

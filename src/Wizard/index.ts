@@ -5,7 +5,7 @@ import { Middleware, MiddlewareObj } from '../Middleware';
 import SceneContext from '../Stage/context';
 import WizardContextWizard, { WizardSessionData } from './context';
 
-class Wizard<
+export class Wizard<
     C extends Context & {
       scene: SceneContext<C, WizardSessionData>;
       wizard: WizardContextWizard<C>;
