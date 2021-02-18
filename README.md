@@ -4,7 +4,13 @@ Fastest framework for develop Botmaker Bots, but with low changes can use with d
 
 ## To use
 
-- import with:
+- Install with:
+
+```console
+  npm install -D boteco
+```
+
+- Import with:
 
 ```javascript
 const Boteco = require('Boteco').default;
@@ -40,11 +46,11 @@ bot.launch();
 - Wizard with session example:
 
 ```javascript
-const Boteco = require('./bin/index').default;
-const session = require('./bin/Session/index').default;
-const Composer = require('./bin/Composer/index').default;
-const Wizard = require('./bin/Wizard/index').default;
-const Stage = require('./bin/Stage/index').default;
+const Boteco = require('boteco').default;
+const session = require('boteco').default;
+const Composer = require('boteco').default;
+const Wizard = require('boteco').default;
+const Stage = require('boteco').default;
 
 const bot = new Boteco({
   contextType: 'botmaker',
@@ -109,7 +115,7 @@ const stage = new Stage([wizName]);
 
 bot.use(stage.middleware());
 
-bot.hears('Oi', (ctx) => {
+bot.hears('Hi', (ctx) => {
   const hostNumber = ctx.me.telephoneNumber;
   const clientNumber = ctx.from.user.telephoneNumber;
   ctx.sendMessage('Hello from Boteco!', {
