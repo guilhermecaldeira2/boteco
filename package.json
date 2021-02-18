@@ -15,7 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/guilhermecaldeira2/boteco.git"
   },
-  "keywords": [],
+  "keywords": [
+    "BotMaker",
+    "WhatsApp",
+    "ChatBot"
+  ],
   "author": "@guilhermecaldeira2",
   "license": "ISC",
   "devDependencies": {
@@ -57,6 +61,6 @@
   },
   "homepage": "https://github.com/guilhermecaldeira2/boteco#readme",
   "bin": {
-    "boteco": "index.js"
+    "boteco": "bin/index.js"
   }
 }
