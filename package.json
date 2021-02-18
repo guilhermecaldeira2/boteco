@@ -2,10 +2,10 @@
   "name": "boteco",
   "version": "1.0.0",
   "description": "Better framework to create bots",
-  "main": "bin/BOTECO.js",
+  "main": "bin/index.js",
   "scripts": {
     "test": "jest",
-    "start": "node ./bin/BOTECO.js",
+    "start": "node ./bin/index.js",
     "emitDeclaration": "tsc --emitDeclarationOnly",
     "build": "babel src --extensions \" .js,.ts\" --out-dir bin --copy-files --no-copy-ignored",
     "build:prd": "npm run build && npm run emitDeclaration",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guitdevbr/boteco"
+    "url": "git+https://github.com/guilhermecaldeira2/boteco"
   },
   "keywords": [],
-  "author": "gcgs",
+  "author": "@guilhermecaldeira2",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.11.6",
