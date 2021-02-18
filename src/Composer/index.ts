@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
@@ -106,6 +107,8 @@ class Composer<C extends Context> implements MiddlewareObj<C> {
     return (ctx, next) => {
       let prevIndex = -1;
 
+      return execute(0, ctx);
+
       async function execute(i: number, context: C): Promise<void> {
         if (i <= prevIndex) {
           throw new Error('next() called multiple times');
@@ -115,12 +118,10 @@ class Composer<C extends Context> implements MiddlewareObj<C> {
 
         const middleware = Composer.unwrap(middlewares[i] ?? next);
 
-        if (!middleware) throw new Error('invalid handler');
         await middleware(context, async (ctx = context) => {
           await execute(i + 1, ctx);
         });
       }
-      execute(0, ctx);
     };
   }
 }

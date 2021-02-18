@@ -22,7 +22,9 @@ function Session<S extends Object>(): MiddlewareFn<SessionContext<S>> {
       store.set(key, {});
       ctx.session = {} as S;
     }
+
     await next();
+
     if (!ctx.session) {
       store.del(key);
     } else {

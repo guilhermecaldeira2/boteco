@@ -5,6 +5,8 @@ import Composer from '@src/Composer';
 import { SessionContext } from '../Session';
 import SceneContext, { SceneSession, SceneSessionData } from './context';
 
+export type MaybePromise<T> = T | Promise<T>;
+
 class Stage<
   C extends SessionContext<SceneSession<D>> & {
     scene: SceneContext<C, D>;

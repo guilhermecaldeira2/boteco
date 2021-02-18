@@ -13,7 +13,7 @@ class Server {
     const { port, webhook } = webhookObj;
     this.app = new App();
     this.app.express.listen(port, () =>
-      console.log(`BOT start...\nReceiving in in:${process.env.HOST}:${port}${webhook}/income`),
+      console.log(`BOT start...\nReceiving in <HOST>:${port}${webhook}/income`),
     );
   }
 }
