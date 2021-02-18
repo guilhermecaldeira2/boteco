@@ -1,5 +1,5 @@
 {
-  "name": "boteco",
+  "name": "@guitdevbr/boteco",
   "version": "1.0.0",
   "description": "Better framework to create bots",
   "main": "bin/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guilhermecaldeira2/boteco"
+    "url": "git+https://github.com/guilhermecaldeira2/boteco.git"
   },
   "keywords": [],
   "author": "@guilhermecaldeira2",
@@ -51,5 +51,12 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/guilhermecaldeira2/boteco/issues"
+  },
+  "homepage": "https://github.com/guilhermecaldeira2/boteco#readme",
+  "bin": {
+    "boteco": "index.js"
   }
 }
