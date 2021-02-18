@@ -15,6 +15,10 @@ export class Stage<
 > extends Composer<C> {
   scenes: Map<string, Base<C>>;
 
+  /**
+   * Create a stage with wizards subscribed;
+   * @param scenes must be an array of Wizards;
+   */
   constructor(scenes: ReadonlyArray<Base<C>> = []) {
     super();
     this.scenes = new Map<string, Base<C>>();

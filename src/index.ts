@@ -26,6 +26,9 @@ export class Boteco<C extends Context = Context> extends Composer<C> {
 
   private webhook: string;
 
+  /**
+   * @param options pass context type for change webhook host, need token for connection;
+   */
   constructor(private readonly options: BotecoOptions) {
     super();
     this.port = options.webhook?.port ?? process.env.PORT ?? '5555';
@@ -50,6 +53,9 @@ export class Boteco<C extends Context = Context> extends Composer<C> {
     return router;
   }
 
+  /**
+   * Starts polling hook
+   */
   launch() {
     this.server = new Server({ port: this.port, webhook: this.webhook });
     this.server.app.express.use(this.webhook, this.webhookHandler());

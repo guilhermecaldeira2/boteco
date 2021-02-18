@@ -24,15 +24,26 @@ export class Composer<C extends Context> implements MiddlewareObj<C> {
     this.handler = Composer.compose(middlewares);
   }
 
+  /**
+   * Subscribe middleware to handle text messages;
+   * @param triggers triggers accepts one or more parameters of: regex, function or string;
+   * @param middlewares middlewares accepts one or more middlewares for handle text messages;
+   */
   hears(triggers: Triggers<C>, ...middlewares: MatchedMiddleware<C>) {
     return this.use(Composer.hears(triggers, ...middlewares));
   }
 
+  /**
+   * Register middleware.
+   */
   use(...fns: ReadonlyArray<Middleware<C>>) {
     this.handler = Composer.compose([this.handler, ...fns]);
     return this;
   }
 
+  /**
+   * Returns a middleware handler
+   */
   middleware() {
     return this.handler;
   }

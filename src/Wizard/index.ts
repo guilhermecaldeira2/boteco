@@ -15,6 +15,11 @@ export class Wizard<
   implements MiddlewareObj<C> {
   steps: Array<Middleware<C>>;
 
+  /**
+   * Create a wizard that handle execution steps
+   * @param id id must be a unique string;
+   * @param steps steps must be one or more middleware or composers middlewares;
+   */
   constructor(id: string, ...steps: Array<Middleware<C>>) {
     super(id, ...steps);
     this.steps = steps;
