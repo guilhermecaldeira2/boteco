@@ -8,7 +8,13 @@ import { AxiosResponse } from 'axios';
 
 export interface Channel {
   update: Update;
-  sendMessage: (text: string, options: Object) => Promise<AxiosResponse>;
+  sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse>;
+}
+
+export interface SendMessageOptions {
+  chatPlatform: 'whatsapp';
+  chatChannelNumber: string;
+  platformContactId: string;
 }
 
 export interface Update {
@@ -82,8 +88,8 @@ export class Context {
     return this.channel.update._id;
   }
 
-  sendMessage = async (chatId: string, text: string) => {
-    return this.channel.sendMessage(chatId, text);
+  sendMessage = async (text: string, options: SendMessageOptions) => {
+    return this.channel.sendMessage(text, options);
   };
 }
 

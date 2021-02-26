@@ -1,15 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { AxiosRequestConfig } from 'axios';
 import { Request } from 'express';
-import { Update, Channel } from '../Context';
+import { Update, Channel, SendMessageOptions } from '../Context';
 import MountBotMakerRequest from './MountRequest';
 import api from './api';
-
-export interface BotMakerSendMessageOptions {
-  chatPlatform: 'whatsapp';
-  chatChannelNumber: string;
-  platformContactId: string;
-}
 
 class BotMakerContext implements Channel {
   public update: Update;
@@ -18,7 +12,7 @@ class BotMakerContext implements Channel {
     this.update = MountBotMakerRequest(this.req);
   }
 
-  sendMessage = async (text: string, options: BotMakerSendMessageOptions) => {
+  sendMessage = async (text: string, options: SendMessageOptions) => {
     const config: AxiosRequestConfig = {
       headers: {
         Accept: 'application/json',
