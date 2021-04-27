@@ -115,7 +115,7 @@ export class Composer<C extends Context> implements MiddlewareObj<C> {
 
     if (middlewares.length === 1) return Composer.unwrap(middlewares[0]!);
 
-    return (ctx, next) => {
+    return async (ctx, next) => {
       let prevIndex = -1;
 
       return execute(0, ctx);
@@ -128,7 +128,7 @@ export class Composer<C extends Context> implements MiddlewareObj<C> {
         prevIndex = i;
 
         const middleware = Composer.unwrap(middlewares[i] ?? next);
-
+        console.log('exec');
         await middleware(context, async (ctx = context) => {
           await execute(i + 1, ctx);
         });

@@ -68,8 +68,8 @@ class Context {
     return this.channel.update._id;
   }
 
-  sendMessage = async (chatId, text) => {
-    return this.channel.sendMessage(chatId, text);
+  sendMessage = async (text, options) => {
+    return this.channel.sendMessage(text, options);
   };
 }
 

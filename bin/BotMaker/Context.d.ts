@@ -1,15 +1,10 @@
 import { Request } from 'express';
-import { Update, Channel } from '../Context';
-export interface BotMakerSendMessageOptions {
-    chatPlatform: 'whatsapp';
-    chatChannelNumber: string;
-    platformContactId: string;
-}
+import { Update, Channel, SendMessageOptions } from '../Context';
 declare class BotMakerContext implements Channel {
     private readonly TOKEN;
     private readonly req;
     update: Update;
     constructor(TOKEN: string, req: Request);
-    sendMessage: (text: string, options: BotMakerSendMessageOptions) => Promise<import("axios").AxiosResponse<any>>;
+    sendMessage: (text: string, options: SendMessageOptions) => Promise<import("axios").AxiosResponse<any>>;
 }
 export default BotMakerContext;

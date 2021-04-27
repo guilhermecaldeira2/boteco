@@ -29,11 +29,14 @@ function Session() {
       ctx.session = {};
     }
 
+    console.log('awaiting');
     await next();
+    console.log('saved');
 
     if (!ctx.session) {
       store.del(key);
     } else {
+      console.log(ctx.session);
       store.set(key, ctx.session);
     }
   };

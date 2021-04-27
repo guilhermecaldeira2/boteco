@@ -22,12 +22,13 @@ export function Session<S extends Object>(): MiddlewareFn<SessionContext<S>> {
       store.set(key, {});
       ctx.session = {} as S;
     }
-
+    console.log('awaiting');
     await next();
-
+    console.log('saved');
     if (!ctx.session) {
       store.del(key);
     } else {
+      console.log(ctx.session);
       store.set(key, ctx.session);
     }
   };

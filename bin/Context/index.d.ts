@@ -1,7 +1,12 @@
 import { AxiosResponse } from 'axios';
 export interface Channel {
     update: Update;
-    sendMessage: (text: string, options: Object) => Promise<AxiosResponse>;
+    sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse>;
+}
+export interface SendMessageOptions {
+    chatPlatform: 'whatsapp';
+    chatChannelNumber: string;
+    platformContactId: string;
 }
 export interface Update {
     _id: string;
@@ -48,6 +53,6 @@ export declare class Context {
         telephoneNumber: string;
     };
     get _id(): string;
-    sendMessage: (chatId: string, text: string) => Promise<AxiosResponse<any>>;
+    sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse<any>>;
 }
 export default Context;

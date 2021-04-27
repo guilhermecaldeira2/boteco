@@ -9,6 +9,8 @@ var _Composer = _interopRequireDefault(require("../Composer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-return-await */
+
 /* eslint-disable no-empty-function */
 
 /* eslint-disable no-underscore-dangle */
@@ -59,7 +61,7 @@ class SceneContext {
     this.session.current = sceneId;
     const handler = 'middleware' in this.current ? this.current.middleware() : null;
     if (!handler) throw new Error(`Can't find scene ${sceneId}`);
-    return handler(this.ctx, noop);
+    return await handler(this.ctx, noop);
   }
 
   leaving = false;

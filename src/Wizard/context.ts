@@ -48,7 +48,9 @@ class WizardContextWizard<
   }
 
   next() {
-    return this.selectStep(this.cursor + 1);
+    this.selectStep(this.cursor + 1);
+    console.log(this.cursor);
+    return this;
   }
 
   back() {

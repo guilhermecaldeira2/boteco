@@ -115,7 +115,7 @@ class Composer {
 
     if (middlewares.length === 0) return Composer.passThru();
     if (middlewares.length === 1) return Composer.unwrap(middlewares[0]);
-    return (ctx, next) => {
+    return async (ctx, next) => {
       let prevIndex = -1;
       return execute(0, ctx);
 
@@ -128,6 +128,7 @@ class Composer {
 
         prevIndex = i;
         const middleware = Composer.unwrap((_middlewares$i = middlewares[i]) !== null && _middlewares$i !== void 0 ? _middlewares$i : next);
+        console.log('exec');
         await middleware(context, async (ctx = context) => {
           await execute(i + 1, ctx);
         });
