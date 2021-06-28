@@ -6,9 +6,12 @@
 
 import { AxiosResponse } from 'axios';
 
+type Photo = string | Buffer
+
 export interface Channel {
   update: Update;
   sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse>;
+  sendImage: (photo: Photo, options: SendMessageOptions) => Promise<AxiosResponse>;
 }
 
 export interface SendMessageOptions {
@@ -90,6 +93,10 @@ export class Context {
 
   sendMessage = async (text: string, options: SendMessageOptions) => {
     return this.channel.sendMessage(text, options);
+  };
+
+  sendPhoto = async (photo: Photo, options: SendMessageOptions) => {
+    return this.channel.sendImage(photo, options);
   };
 }
 

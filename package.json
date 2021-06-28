@@ -1,6 +1,6 @@
 {
-  "name": "boteco",
-  "version": "1.0.1",
+  "name": "@matheusdfrr/boteco",
+  "version": "1.0.3",
   "description": "Better framework to create bots",
   "main": "bin/index.js",
   "scripts": {

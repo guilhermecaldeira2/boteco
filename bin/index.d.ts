@@ -1,3 +1,4 @@
+import { Router } from 'express';
 import Composer from './Composer';
 import Context from './Context';
 export interface BotecoOptions {
@@ -21,6 +22,6 @@ export declare class Boteco<C extends Context = Context> extends Composer<C> {
     /**
      * Starts polling hook
      */
-    launch(): void;
+    launch(router?: Router): void;
 }
 export default Boteco;

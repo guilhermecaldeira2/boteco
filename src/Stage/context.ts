@@ -1,4 +1,3 @@
-/* eslint-disable no-return-await */
 /* eslint-disable no-empty-function */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-use-before-define */
@@ -51,7 +50,7 @@ class SceneContext<
     this.session.current = sceneId;
     const handler = 'middleware' in this.current ? this.current.middleware() : null;
     if (!handler) throw new Error(`Can't find scene ${sceneId}`);
-    return await handler(this.ctx, noop);
+    return handler(this.ctx, noop);
   }
 
   private leaving = false;

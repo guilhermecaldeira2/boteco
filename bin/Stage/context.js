@@ -9,8 +9,6 @@ var _Composer = _interopRequireDefault(require("../Composer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-return-await */
-
 /* eslint-disable no-empty-function */
 
 /* eslint-disable no-underscore-dangle */
@@ -29,9 +27,7 @@ class SceneContext {
   }
 
   get session() {
-    var _this$ctx$session$__s, _this$ctx$session;
-
-    const session = (_this$ctx$session$__s = (_this$ctx$session = this.ctx.session) === null || _this$ctx$session === void 0 ? void 0 : _this$ctx$session.__scenes) !== null && _this$ctx$session$__s !== void 0 ? _this$ctx$session$__s : {};
+    const session = this.ctx.session?.__scenes ?? {};
 
     if (!this.ctx.session) {
       this.ctx.session = {
@@ -61,7 +57,7 @@ class SceneContext {
     this.session.current = sceneId;
     const handler = 'middleware' in this.current ? this.current.middleware() : null;
     if (!handler) throw new Error(`Can't find scene ${sceneId}`);
-    return await handler(this.ctx, noop);
+    return handler(this.ctx, noop);
   }
 
   leaving = false;

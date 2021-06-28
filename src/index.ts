@@ -56,9 +56,12 @@ export class Boteco<C extends Context = Context> extends Composer<C> {
   /**
    * Starts polling hook
    */
-  launch() {
+  launch(router?: Router) {
     this.server = new Server({ port: this.port, webhook: this.webhook });
     this.server.app.express.use(this.webhook, this.webhookHandler());
+    if (router) {
+      this.server.app.express.use(router);
+    }
   }
 }
 

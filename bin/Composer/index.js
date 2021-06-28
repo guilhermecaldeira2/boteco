@@ -115,20 +115,17 @@ class Composer {
 
     if (middlewares.length === 0) return Composer.passThru();
     if (middlewares.length === 1) return Composer.unwrap(middlewares[0]);
-    return async (ctx, next) => {
+    return (ctx, next) => {
       let prevIndex = -1;
       return execute(0, ctx);
 
       async function execute(i, context) {
-        var _middlewares$i;
-
         if (i <= prevIndex) {
           throw new Error('next() called multiple times');
         }
 
         prevIndex = i;
-        const middleware = Composer.unwrap((_middlewares$i = middlewares[i]) !== null && _middlewares$i !== void 0 ? _middlewares$i : next);
-        console.log('exec');
+        const middleware = Composer.unwrap(middlewares[i] ?? next);
         await middleware(context, async (ctx = context) => {
           await execute(i + 1, ctx);
         });

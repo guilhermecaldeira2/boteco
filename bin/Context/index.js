@@ -32,17 +32,13 @@ class Context {
   }
 
   get hasAttachment() {
-    var _this$channel$update$;
-
     if (!('hasAttachment' in this.channel.update)) return null;
-    return (_this$channel$update$ = this.channel.update.hasAttachment) !== null && _this$channel$update$ !== void 0 ? _this$channel$update$ : null;
+    return this.channel.update.hasAttachment ?? null;
   }
 
   get message() {
-    var _this$channel$update$2;
-
     if (!('message' in this.channel.update)) return null;
-    return (_this$channel$update$2 = this.channel.update.message) !== null && _this$channel$update$2 !== void 0 ? _this$channel$update$2 : null;
+    return this.channel.update.message ?? null;
   }
 
   get from() {
@@ -70,6 +66,9 @@ class Context {
 
   sendMessage = async (text, options) => {
     return this.channel.sendMessage(text, options);
+  };
+  sendPhoto = async (photo, options) => {
+    return this.channel.sendImage(photo, options);
   };
 }
 

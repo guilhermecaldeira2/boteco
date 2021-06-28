@@ -29,12 +29,10 @@ class Boteco extends _Composer.default {
    * @param options pass context type for change webhook host, need token for connection;
    */
   constructor(options) {
-    var _ref, _options$webhook$port, _options$webhook, _options$webhook$webh, _options$webhook2;
-
     super();
     this.options = options;
-    this.port = (_ref = (_options$webhook$port = (_options$webhook = options.webhook) === null || _options$webhook === void 0 ? void 0 : _options$webhook.port) !== null && _options$webhook$port !== void 0 ? _options$webhook$port : process.env.PORT) !== null && _ref !== void 0 ? _ref : '5555';
-    this.webhook = (_options$webhook$webh = (_options$webhook2 = options.webhook) === null || _options$webhook2 === void 0 ? void 0 : _options$webhook2.webhook) !== null && _options$webhook$webh !== void 0 ? _options$webhook$webh : '/api/v1/webhook';
+    this.port = options.webhook?.port ?? process.env.PORT ?? '5555';
+    this.webhook = options.webhook?.webhook ?? '/api/v1/webhook';
   }
 
   webhookHandler() {
@@ -57,12 +55,16 @@ class Boteco extends _Composer.default {
    */
 
 
-  launch() {
+  launch(router) {
     this.server = new _Server.default({
       port: this.port,
       webhook: this.webhook
     });
     this.server.app.express.use(this.webhook, this.webhookHandler());
+
+    if (router) {
+      this.server.app.express.use(router);
+    }
   }
 
 }

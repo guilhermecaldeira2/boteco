@@ -27,7 +27,7 @@ class Stage extends _Composer.default {
 
   register(...scenes) {
     scenes.forEach(scene => {
-      if (!(scene !== null && scene !== void 0 && scene.id) || typeof scene.middleware !== 'function') {
+      if (!scene?.id || typeof scene.middleware !== 'function') {
         throw new Error('Unsupported scene');
       }
 
@@ -37,11 +37,9 @@ class Stage extends _Composer.default {
 
   middleware() {
     return _Composer.default.compose([(ctx, next) => {
-      var _ctx$scene$current;
-
       const scenes = this.scenes;
       ctx.scene = new _context.default(ctx, scenes);
-      return _Composer.default.unwrap((_ctx$scene$current = ctx.scene.current) !== null && _ctx$scene$current !== void 0 ? _ctx$scene$current : _Composer.default.passThru())(ctx, next);
+      return _Composer.default.unwrap(ctx.scene.current ?? _Composer.default.passThru())(ctx, next);
     }]);
   }
 

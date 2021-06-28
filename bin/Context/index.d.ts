@@ -1,7 +1,10 @@
+/// <reference types="node" />
 import { AxiosResponse } from 'axios';
+declare type Photo = string | Buffer;
 export interface Channel {
     update: Update;
     sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse>;
+    sendImage: (photo: Photo, options: SendMessageOptions) => Promise<AxiosResponse>;
 }
 export interface SendMessageOptions {
     chatPlatform: 'whatsapp';
@@ -54,5 +57,6 @@ export declare class Context {
     };
     get _id(): string;
     sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse<any>>;
+    sendPhoto: (photo: Photo, options: SendMessageOptions) => Promise<AxiosResponse<any>>;
 }
 export default Context;

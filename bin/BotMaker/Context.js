@@ -20,11 +20,17 @@ class BotMakerContext {
   }
 
   sendMessage = async (text, options) => {
+    return BotMakerContext.sendMessage(text, this.TOKEN, options);
+  };
+  sendImage = async (photoUrl, options) => {
+    return BotMakerContext.sendImage(photoUrl, this.TOKEN, options);
+  };
+  static sendMessage = async (text, TOKEN, options) => {
     const config = {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'access-token': this.TOKEN
+        'access-token': TOKEN
       }
     };
     const data = {
@@ -32,6 +38,22 @@ class BotMakerContext {
       chatChannelNumber: options.chatChannelNumber,
       platformContactId: options.platformContactId,
       messageText: text
+    };
+    return _api.default.instance.post('/api/v1.0/message/v3', data, config);
+  };
+  static sendImage = async (photoUrl, TOKEN, options) => {
+    const config = {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'access-token': TOKEN
+      }
+    };
+    const data = {
+      chatPlatform: options.chatPlatform,
+      chatChannelNumber: options.chatChannelNumber,
+      platformContactId: options.platformContactId,
+      imageURL: photoUrl
     };
     return _api.default.instance.post('/api/v1.0/message/v3', data, config);
   };
