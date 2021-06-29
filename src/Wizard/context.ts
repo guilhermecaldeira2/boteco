@@ -4,9 +4,9 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable constructor-super */
 import Context from '@src/Context';
-import SceneContext, { SceneSession, SceneSessionData } from '../Stage/context';
-import { SessionContext } from '../Session';
-import { Middleware } from '../Middleware';
+import SceneContext, { SceneSession, SceneSessionData } from '@src/Stage/context';
+import { SessionContext } from '@src/Session';
+import { Middleware } from '@src/Middleware';
 
 // export interface WizardContext<D extends WizardSessionData = WizardSessionData> extends Context {
 //   session: WizardSession<D>;

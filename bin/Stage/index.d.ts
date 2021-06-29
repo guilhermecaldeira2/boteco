@@ -1,6 +1,6 @@
 import Base from '@src/Base';
 import Composer from '@src/Composer';
-import { SessionContext } from '../Session';
+import { SessionContext } from '@src/Session';
 import SceneContext, { SceneSession, SceneSessionData } from './context';
 export declare type MaybePromise<T> = T | Promise<T>;
 export declare class Stage<C extends SessionContext<SceneSession<D>> & {

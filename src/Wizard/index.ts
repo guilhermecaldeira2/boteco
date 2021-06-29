@@ -1,8 +1,8 @@
 import Base from '@src/Base';
-import Composer from '../Composer';
-import Context from '../Context';
-import { Middleware, MiddlewareObj } from '../Middleware';
-import SceneContext from '../Stage/context';
+import Composer from '@src/Composer';
+import Context from '@src/Context';
+import { Middleware, MiddlewareObj } from '@src/Middleware';
+import SceneContext from '@src/Stage/context';
 import WizardContextWizard, { WizardSessionData } from './context';
 
 export class Wizard<

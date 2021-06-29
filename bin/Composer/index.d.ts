@@ -1,5 +1,5 @@
 import Context from '@src/Context';
-import { Middleware, MiddlewareObj, MiddlewareFn } from '../Middleware';
+import { Middleware, MiddlewareObj, MiddlewareFn } from '@src/Middleware';
 declare type MaybeArray<T> = T | T[];
 declare type TriggerFn<C extends Context> = (value: string, ctx: C) => RegExpExecArray | null;
 declare type Triggers<C extends Context> = MaybeArray<string | RegExp | TriggerFn<C>>;

@@ -1,7 +1,7 @@
 import Base from '@src/Base';
-import Context from '../Context';
-import { Middleware, MiddlewareObj } from '../Middleware';
-import SceneContext from '../Stage/context';
+import Context from '@src/Context';
+import { Middleware, MiddlewareObj } from '@src/Middleware';
+import SceneContext from '@src/Stage/context';
 import WizardContextWizard, { WizardSessionData } from './context';
 export declare class Wizard<C extends Context & {
     scene: SceneContext<C, WizardSessionData>;

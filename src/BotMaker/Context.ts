@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AxiosRequestConfig } from 'axios';
 import { Request } from 'express';
-import { Update, Channel, SendMessageOptions } from 'src/Context';
+import { Update, Channel, SendMessageOptions } from '@src/Context';
 import MountBotMakerRequest from './MountRequest';
 import api from './api';
 

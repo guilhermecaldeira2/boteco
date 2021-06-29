@@ -1,5 +1,5 @@
 import Context from '@src/Context';
-import { MiddlewareFn } from '../Middleware';
+import { MiddlewareFn } from '@src/Middleware';
 export interface SessionContext<S extends Object> extends Context {
     session?: S;
 }

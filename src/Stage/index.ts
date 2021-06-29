@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 import Base from '@src/Base';
 import Composer from '@src/Composer';
-import { SessionContext } from '../Session';
+import { SessionContext } from '@src/Session';
 import SceneContext, { SceneSession, SceneSessionData } from './context';
 
 export type MaybePromise<T> = T | Promise<T>;

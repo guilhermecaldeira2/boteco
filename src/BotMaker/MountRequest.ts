@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { Update } from '../Context';
+import { Update } from '@src/Context';
 
 function MountBotMakerRequest(req: Request): Update {
   const {

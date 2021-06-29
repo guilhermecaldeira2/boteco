@@ -3,7 +3,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
 import Context from '@src/Context';
-import { Middleware, MiddlewareObj, MiddlewareFn } from '../Middleware';
+import { Middleware, MiddlewareObj, MiddlewareFn } from '@src/Middleware';
 
 type MaybeArray<T> = T | T[];
 

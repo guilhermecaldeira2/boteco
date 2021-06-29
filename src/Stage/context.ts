@@ -5,7 +5,7 @@
 /* eslint-disable no-useless-constructor */
 import { SessionContext } from '@src/Session';
 import Base from '@src/Base';
-import Composer from '../Composer';
+import Composer from '@src/Composer';
 
 export interface SceneSessionData {
   current?: string;

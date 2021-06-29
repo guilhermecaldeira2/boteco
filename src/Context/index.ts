@@ -6,7 +6,7 @@
 
 import { AxiosResponse } from 'axios';
 
-type Photo = string | Buffer
+type Photo = string | Buffer;
 
 export interface Channel {
   update: Update;
