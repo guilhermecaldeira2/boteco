@@ -1,4 +1,5 @@
 import express, { Router, Express } from 'express';
+import cors from 'cors';
 
 import Server, { ServerConfiguration } from './Server';
 import BotMakerChannel from './BotMaker/Channel';
@@ -56,6 +57,8 @@ export default class Boteco<C extends Context> extends Composer<C> {
   };
 
   launch(router?: Router): void {
+    this.express.use(express.json());
+    this.express.use(cors());
     this.express.use(this.serverConfiguration.webhookPath, this.webhookHandler());
     if (router) {
       this.express.use(router);
@@ -70,3 +73,4 @@ export { Wizard } from './Wizard';
 export { Stage } from './Stage';
 export { Composer } from './Composer';
 export { Session } from './Session';
+export { BotMakerChannel } from './BotMaker/Channel';
