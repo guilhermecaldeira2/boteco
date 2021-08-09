@@ -101,3 +101,5 @@ export class Context {
     return this.channel.sendImage(photo, options);
   };
 }
+
+export default Context;

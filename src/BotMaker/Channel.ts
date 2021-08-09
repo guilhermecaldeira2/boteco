@@ -5,7 +5,7 @@ import { Update, Channel, SendMessageOptions } from '../Context';
 import MountBotMakerRequest from './MountRequest';
 import api from './api';
 
-class BotMakerChannel implements Channel {
+export class BotMakerChannel implements Channel {
   public update: Update;
 
   constructor(private readonly TOKEN: string, private readonly req: Request) {

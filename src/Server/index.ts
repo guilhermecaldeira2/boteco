@@ -2,9 +2,9 @@ import { Express } from 'express';
 import colors from 'colors';
 
 export interface ServerConfiguration {
-  port: number;
-  webhookPath: string;
-  express: Express;
+  port?: number;
+  webhookPath?: string;
+  express?: Express;
 }
 
 export default class Server {
@@ -23,7 +23,7 @@ export default class Server {
   public start = () => {
     return this.express.listen(this.port, () => {
       // eslint-disable-next-line no-console
-      console.log(colors.green(`Bot listening on <HOST>:${this.port}/${this.webhookPath}/income`));
+      console.log(colors.green(`Bot listening on <HOST>:${this.port}${this.webhookPath}/income`));
     });
   };
 }

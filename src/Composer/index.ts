@@ -131,3 +131,5 @@ export class Composer<C extends Context> implements MiddlewareObj<C> {
     };
   }
 }
+
+export default Composer;
