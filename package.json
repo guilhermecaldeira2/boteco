@@ -2,7 +2,7 @@
   "name": "boteco",
   "version": "2.0.0",
   "description": "Fastest framework for develop Botmaker Bots, but with low changes can use with different chatbot hosts;",
-  "main": "index.js",
+  "main": "./bin/index.js",
   "scripts": {
     "build": "babel src --extensions \" .js,.ts\" --out-dir bin --copy-files --no-copy-ignored",
     "build:prd": "npm run build && npm run emitDeclaration",
