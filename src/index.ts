@@ -17,7 +17,7 @@ function always<T>(x: T) {
 
 const noop = always(Promise.resolve());
 
-export default class Boteco<C extends Context> extends Composer<C> {
+export default class Boteco<C extends Context = Context> extends Composer<C> {
   private botecoConfiguration: BotecoConfiguration;
 
   private serverConfiguration: ServerConfiguration;
