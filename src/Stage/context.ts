@@ -16,7 +16,7 @@ export interface SceneSession<S extends SceneSessionData = SceneSessionData> {
 
 export default class SceneContext<
   C extends SessionContext<SceneSession<D>>,
-  D extends SceneSessionData = SceneSessionData,
+  D extends SceneSessionData = SceneSessionData
 > {
   private ctx: C;
 

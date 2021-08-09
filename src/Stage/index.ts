@@ -9,7 +9,7 @@ export class Stage<
   C extends SessionContext<SceneSession<D>> & {
     scene: SceneContext<C, D>;
   },
-  D extends SceneSessionData = SceneSessionData,
+  D extends SceneSessionData = SceneSessionData
 > extends Composer<C> {
   scenes: Map<string, Base<C>>;
 

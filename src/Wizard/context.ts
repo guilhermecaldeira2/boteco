@@ -12,7 +12,7 @@ export interface WizardSession<S extends WizardSessionData = WizardSessionData>
 export default class WizardContextWizard<
   C extends SessionContext<WizardSession> & {
     scene: SceneContext<C, WizardSessionData>;
-  },
+  }
 > {
   private ctx: C;
 

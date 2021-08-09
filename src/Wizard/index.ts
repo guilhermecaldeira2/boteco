@@ -9,11 +9,10 @@ export class Wizard<
     C extends Context & {
       scene: SceneContext<C, WizardSessionData>;
       wizard: WizardContextWizard<C>;
-    },
+    }
   >
   extends Base<C>
-  implements MiddlewareObj<C>
-{
+  implements MiddlewareObj<C> {
   steps: Array<Middleware<C>>;
 
   /**
