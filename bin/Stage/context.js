@@ -19,7 +19,13 @@ class SceneContext {
   }
 
   get session() {
+<<<<<<< HEAD
     const session = this.ctx.session?.__scenes ?? {};
+=======
+    var _this$ctx$session;
+
+    const session = ((_this$ctx$session = this.ctx.session) === null || _this$ctx$session === void 0 ? void 0 : _this$ctx$session.__scenes) ?? {};
+>>>>>>> ccc213cb98361296f542dc572bbfb40adba70220
 
     if (!this.ctx.session) {
       this.ctx.session = {

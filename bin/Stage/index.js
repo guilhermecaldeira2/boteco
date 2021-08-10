@@ -26,7 +26,11 @@ class Stage extends _Composer.Composer {
 
   register(...scenes) {
     scenes.forEach(scene => {
+<<<<<<< HEAD
       if (!scene?.id || typeof scene.middleware !== 'function') {
+=======
+      if (!(scene !== null && scene !== void 0 && scene.id) || typeof scene.middleware !== 'function') {
+>>>>>>> ccc213cb98361296f542dc572bbfb40adba70220
         throw new Error('Unsupported scene');
       }
 

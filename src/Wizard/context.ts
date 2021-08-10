@@ -21,7 +21,7 @@ export default class WizardContextWizard<
   constructor(ctx: C, steps: ReadonlyArray<Middleware<C>>) {
     this.steps = steps;
     this.ctx = ctx;
-    this.cursor = ctx.scene.session.cursor || 0;
+    this.cursor = ctx.scene.session.cursor ?? 0;
   }
 
   get step() {
