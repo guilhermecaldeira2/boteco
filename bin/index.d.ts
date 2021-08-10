@@ -6,7 +6,7 @@ interface BotecoConfiguration extends ServerConfiguration {
     contextType: 'botmaker';
     TOKEN: string;
 }
-export default class Boteco<C extends Context> extends Composer<C> {
+export default class Boteco<C extends Context = Context> extends Composer<C> {
     private botecoConfiguration;
     private serverConfiguration;
     private express;

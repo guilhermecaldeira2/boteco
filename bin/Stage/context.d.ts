@@ -2,6 +2,7 @@ import Base from '../Base';
 import { SessionContext } from '../Session';
 export interface SceneSessionData {
     current?: string;
+    cursor?: number;
 }
 export interface SceneSession<S extends SceneSessionData = SceneSessionData> {
     __scenes: S;

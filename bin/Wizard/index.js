@@ -28,7 +28,7 @@ class Wizard extends _Base.default {
     return _Composer.Composer.compose([(ctx, next) => {
       ctx.wizard = new _context.default(ctx, this.steps);
 
-      if (!ctx.wizard.step) {
+      if (!ctx.wizard.step === undefined) {
         ctx.wizard.selectStep(0);
         return ctx.scene.leave();
       }
