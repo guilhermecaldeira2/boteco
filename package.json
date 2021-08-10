@@ -1,6 +1,6 @@
 {
   "name": "boteco",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Fastest framework for develop Botmaker Bots, but with low changes can use with different chatbot hosts;",
   "main": "./bin/index.js",
   "scripts": {
