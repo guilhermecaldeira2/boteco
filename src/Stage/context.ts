@@ -8,6 +8,7 @@ const noop = () => Promise.resolve();
 
 export interface SceneSessionData {
   current?: string;
+  cursor?: number;
 }
 
 export interface SceneSession<S extends SceneSessionData = SceneSessionData> {
@@ -52,9 +53,11 @@ export default class SceneContext<
     }
 
     this.session.current = sceneId;
+    this.session.cursor = 0;
     const handler = 'middleware' in this.current ? this.current.middleware() : null;
     if (!handler) throw new Error(`Can't find scene ${sceneId}`);
-    await handler(this.ctx, noop);
+    // eslint-disable-next-line no-return-await
+    return await handler(this.ctx, noop);
   }
 
   private leaving = false;
