@@ -30,7 +30,7 @@ export class Wizard<
     return Composer.compose<C>([
       (ctx, next) => {
         ctx.wizard = new WizardContextWizard(ctx, this.steps);
-        if (!ctx.wizard.step) {
+        if (!ctx.wizard.step === undefined) {
           ctx.wizard.selectStep(0);
           return ctx.scene.leave();
         }
