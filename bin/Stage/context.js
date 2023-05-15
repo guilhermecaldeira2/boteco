@@ -7,21 +7,22 @@ exports.default = void 0;
 
 var _Composer = require("../Composer");
 
-/* eslint-disable no-underscore-dangle */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* eslint-disable no-use-before-define */
 const noop = () => Promise.resolve();
 
 class SceneContext {
   constructor(ctx, scenes) {
+    _defineProperty(this, "leaving", false);
+
     this.ctx = ctx;
     this.scenes = scenes;
   }
 
   get session() {
-    var _this$ctx$session;
+    var _this$ctx$session$__s, _this$ctx$session;
 
-    const session = ((_this$ctx$session = this.ctx.session) === null || _this$ctx$session === void 0 ? void 0 : _this$ctx$session.__scenes) ?? {};
+    const session = (_this$ctx$session$__s = (_this$ctx$session = this.ctx.session) === null || _this$ctx$session === void 0 ? void 0 : _this$ctx$session.__scenes) !== null && _this$ctx$session$__s !== void 0 ? _this$ctx$session$__s : {};
 
     if (!this.ctx.session) {
       this.ctx.session = {
@@ -49,12 +50,12 @@ class SceneContext {
     }
 
     this.session.current = sceneId;
+    this.session.cursor = 0;
     const handler = 'middleware' in this.current ? this.current.middleware() : null;
-    if (!handler) throw new Error(`Can't find scene ${sceneId}`);
-    await handler(this.ctx, noop);
-  }
+    if (!handler) throw new Error(`Can't find scene ${sceneId}`); // eslint-disable-next-line no-return-await
 
-  leaving = false;
+    return await handler(this.ctx, noop);
+  }
 
   async leave() {
     if (this.leaving) return;

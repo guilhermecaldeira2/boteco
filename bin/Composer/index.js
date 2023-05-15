@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Composer = void 0;
+exports.default = exports.Composer = void 0;
 
 /* eslint-disable no-shadow */
 // eslint-disable-next-line no-unused-vars
@@ -126,3 +126,5 @@ class Composer {
 }
 
 exports.Composer = Composer;
+var _default = Composer;
+exports.default = _default;

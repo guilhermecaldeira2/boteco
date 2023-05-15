@@ -3,10 +3,20 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Context = void 0;
+exports.default = exports.Context = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 class Context {
   constructor(channel) {
+    _defineProperty(this, "sendMessage", async (text, options) => {
+      return this.channel.sendMessage(text, options);
+    });
+
+    _defineProperty(this, "sendPhoto", async (photo, options) => {
+      return this.channel.sendImage(photo, options);
+    });
+
     this.channel = channel;
   }
 
@@ -57,12 +67,8 @@ class Context {
     return this.channel.update._id;
   }
 
-  sendMessage = async (text, options) => {
-    return this.channel.sendMessage(text, options);
-  };
-  sendPhoto = async (photo, options) => {
-    return this.channel.sendImage(photo, options);
-  };
 }
 
 exports.Context = Context;
+var _default = Context;
+exports.default = _default;

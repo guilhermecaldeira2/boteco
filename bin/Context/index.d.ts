@@ -59,4 +59,4 @@ export declare class Context {
     sendMessage: (text: string, options: SendMessageOptions) => Promise<AxiosResponse<any>>;
     sendPhoto: (photo: Photo, options: SendMessageOptions) => Promise<AxiosResponse<any>>;
 }
-export {};
+export default Context;
