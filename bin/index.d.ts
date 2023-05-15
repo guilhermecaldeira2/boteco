@@ -19,3 +19,4 @@ export { Wizard } from './Wizard';
 export { Stage } from './Stage';
 export { Composer } from './Composer';
 export { Session } from './Session';
+export { BotMakerChannel } from './BotMaker/Channel';

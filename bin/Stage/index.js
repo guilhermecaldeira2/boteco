@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Stage = void 0;
+exports.default = exports.Stage = void 0;
 
 var _Composer = require("../Composer");
 
@@ -44,3 +44,5 @@ class Stage extends _Composer.Composer {
 }
 
 exports.Stage = Stage;
+var _default = Stage;
+exports.default = _default;

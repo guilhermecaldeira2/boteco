@@ -14,3 +14,4 @@ export declare class Stage<C extends SessionContext<SceneSession<D>> & {
     register(...scenes: ReadonlyArray<Base<C>>): void;
     middleware(): import("../Middleware").MiddlewareFn<C>;
 }
+export default Stage;

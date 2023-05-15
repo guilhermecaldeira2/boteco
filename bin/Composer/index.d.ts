@@ -29,4 +29,4 @@ export declare class Composer<C extends Context> implements MiddlewareObj<C> {
     static passThru(): MiddlewareFn<Context>;
     static compose<C extends Context>(middlewares: ReadonlyArray<Middleware<C>>): MiddlewareFn<C>;
 }
-export {};
+export default Composer;

@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { Update, Channel, SendMessageOptions } from '../Context';
-declare class BotMakerChannel implements Channel {
+export declare class BotMakerChannel implements Channel {
     private readonly TOKEN;
     private readonly req;
     update: Update;
